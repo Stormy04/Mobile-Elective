@@ -1,10 +1,12 @@
 using UnityEngine;
 using System.Collections.Generic;
+
 public class RoadSpawner : MonoBehaviour
 {
-    public GameObject roadSegmentPrefab; // Road segment prefab
-    public int numberOfSegments = 5; // Number of road segments to keep active
-    public float roadLength = 30.0f; // Length of each road segment
+    public GameObject roadSegmentPrefab; 
+    public int numberOfSegments = 5;
+    public float roadLength = 30.0f; 
+    public float despawnDistance = 50.0f; 
 
     private Transform player;
     private Queue<GameObject> roadSegments = new Queue<GameObject>();
@@ -23,7 +25,7 @@ public class RoadSpawner : MonoBehaviour
 
     void Update()
     {
-        if (player.position.z > nextSpawnPoint.z - (numberOfSegments * roadLength))
+        if (player.position.z > nextSpawnPoint.z - (numberOfSegments * roadLength) + roadLength)
         {
             SpawnRoadSegment();
             DespawnRoadSegment();
@@ -39,7 +41,10 @@ public class RoadSpawner : MonoBehaviour
 
     void DespawnRoadSegment()
     {
-        GameObject oldSegment = roadSegments.Dequeue();
-        Destroy(oldSegment);
+        if (roadSegments.Count > numberOfSegments)
+        {
+            GameObject oldSegment = roadSegments.Dequeue();
+            Destroy(oldSegment);
+        }
     }
 }
