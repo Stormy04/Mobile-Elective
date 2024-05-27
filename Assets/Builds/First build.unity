@@ -193,37 +193,6 @@ WheelCollider:
   m_LayerOverridePriority: 0
   m_Enabled: 1
   m_ProvidesContacts: 0
---- !u!1 &180491448
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 180491449}
-  m_Layer: 0
-  m_Name: GameObject (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &180491449
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 180491448}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.59, y: -50.84286, z: -178.13}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1229826353}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &211333838
 GameObject:
   m_ObjectHideFlags: 0
@@ -611,6 +580,7 @@ MonoBehaviour:
     type: 3}
   numberOfSegments: 50
   roadLength: 4
+  despawnDistance: 50
 --- !u!4 &1056568671
 Transform:
   m_ObjectHideFlags: 0
@@ -719,15 +689,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carPrefabs:
-  - {fileID: 919132149155446097, guid: 184bcf729abb6de4ba7b1a45f9c9e736, type: 3}
-  - {fileID: 919132149155446097, guid: 2dd93e8f2c92b4f4f992af8a6abe20d2, type: 3}
-  - {fileID: 919132149155446097, guid: 4f8457d68cab62041b6d4b3bec874e6a, type: 3}
+  - {fileID: 4018396101786390524, guid: 62980672927228e43ac88b4cbcb7ca9d, type: 3}
+  - {fileID: 4018396101786390524, guid: 62980672927228e43ac88b4cbcb7ca9d, type: 3}
+  - {fileID: 4018396101786390524, guid: 62980672927228e43ac88b4cbcb7ca9d, type: 3}
   spawnPoints:
   - {fileID: 2043065255}
   - {fileID: 1127330508}
-  - {fileID: 180491449}
-  - {fileID: 1358383815}
   spawnInterval: 1.5
+  carSpeed: 10
+  spawnDistance: 20
 --- !u!4 &1229826353
 Transform:
   m_ObjectHideFlags: 0
@@ -743,8 +713,6 @@ Transform:
   m_Children:
   - {fileID: 2043065255}
   - {fileID: 1127330508}
-  - {fileID: 180491449}
-  - {fileID: 1358383815}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1236153114
@@ -935,37 +903,6 @@ WheelCollider:
   m_LayerOverridePriority: 0
   m_Enabled: 1
   m_ProvidesContacts: 0
---- !u!1 &1358383814
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1358383815}
-  m_Layer: 0
-  m_Name: GameObject (3)
-  m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1358383815
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1358383814}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.41, y: -50.84286, z: -184.74}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1229826353}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1399386272
 GameObject:
   m_ObjectHideFlags: 0

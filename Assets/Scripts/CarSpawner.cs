@@ -1,89 +1,49 @@
 using UnityEngine;
-using System.Collections.Generic;
 
 public class CarSpawner : MonoBehaviour
 {
-    public GameObject[] carPrefabs; 
-    public Transform[] spawnPoints; 
-    public float spawnInterval = 1.5f; 
-    public float carSpeed = 10.0f;
-    public float occupiedDuration = 3.0f;
+    public GameObject[] carPrefabs; // Array of car prefabs to spawn
+    public Transform[] spawnPoints; // Array of points where cars can spawn for each lane
+    public float spawnInterval = 1.5f; // Time between spawns
+    public float carSpeed = 10.0f; // Speed of the spawned cars
+    public float spawnDistance = 20.0f; // Distance in front of the player to spawn cars
 
+    private Transform player;
     private float timer;
-    private Dictionary<int, float> occupiedTimers = new Dictionary<int, float>(); 
+
+    void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
 
     void Update()
     {
         timer += Time.deltaTime;
 
-    
-        List<int> keysToClear = new List<int>();
-        foreach (var key in new List<int>(occupiedTimers.Keys))
-        {
-            occupiedTimers[key] -= Time.deltaTime;
-            if (occupiedTimers[key] <= 0)
-            {
-                keysToClear.Add(key);
-            }
-        }
+        // Calculate the spawn position based on player's position and velocity
+        Vector3 spawnPosition = player.position + player.forward * spawnDistance + player.forward * player.GetComponent<Rigidbody>().velocity.magnitude * spawnInterval;
 
-    
-        foreach (var key in keysToClear)
-        {
-            occupiedTimers.Remove(key);
-        }
-
-     
+        // Check if it's time to spawn a new car
         if (timer >= spawnInterval)
         {
-            SpawnCar();
+            SpawnCar(spawnPosition);
             timer = 0;
         }
     }
 
-    void SpawnCar()
+    void SpawnCar(Vector3 spawnPosition)
     {
-        if (spawnPoints.Length == 0) return;
+        // Randomly select a lane
+        int laneIndex = Random.Range(0, spawnPoints.Length);
 
-        int carIndex = Random.Range(0, carPrefabs.Length);
-        int spawnPointIndex = GetRandomSpawnPointIndex();
+        // Select a random spawn point from the chosen lane's spawn points
+        Transform spawnPoint = spawnPoints[laneIndex];
 
-        if (spawnPointIndex == -1) return; 
+        // Instantiate the car at the calculated spawn position on the chosen lane
+        GameObject car = Instantiate(carPrefabs[Random.Range(0, carPrefabs.Length)], spawnPoint.position, spawnPoint.rotation);
 
-     
-        Vector3 spawnPosition = spawnPoints[spawnPointIndex].position - transform.forward * 50.0f;
-
-        GameObject car = Instantiate(carPrefabs[carIndex], spawnPosition, Quaternion.identity);
-
-     
+        // Set the car speed
         CarMovement carMovement = car.GetComponent<CarMovement>();
         carMovement.speed = carSpeed;
-
-        
-        occupiedTimers[spawnPointIndex] = occupiedDuration;
-    }
-
-    int GetRandomSpawnPointIndex()
-    {
-        List<int> availableSpawnIndices = new List<int>();
-
-        
-        for (int i = 0; i < spawnPoints.Length; i++)
-        {
-            if (!occupiedTimers.ContainsKey(i))
-            {
-                availableSpawnIndices.Add(i);
-            }
-        }
-
-        
-        if (availableSpawnIndices.Count > 0)
-        {
-            return availableSpawnIndices[Random.Range(0, availableSpawnIndices.Count)];
-        }
-        else
-        {
-            return -1; 
-        }
     }
 }
