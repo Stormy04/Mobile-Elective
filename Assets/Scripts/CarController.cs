@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 public class CarController : MonoBehaviour
 {
     public enum Axle
@@ -99,5 +100,15 @@ public class CarController : MonoBehaviour
 
         }
     }
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("MovingCar"))
+        {
+            
+            Debug.Log("Crashed!");
+            SceneManager.LoadScene("LoseScreen");
+        }
+    }
+
 
 }

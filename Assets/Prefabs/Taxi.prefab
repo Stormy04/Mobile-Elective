@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &4252906746529968813
+--- !u!1001 &575872628448603009
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -61,7 +61,12 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 4f8457d68cab62041b6d4b3bec874e6a,
         type: 3}
       propertyPath: m_Name
-      value: Taxi
+      value: Taxi 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4f8457d68cab62041b6d4b3bec874e6a,
+        type: 3}
+      propertyPath: m_TagString
+      value: MovingCar
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -70,29 +75,29 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4f8457d68cab62041b6d4b3bec874e6a,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5569816004769351995}
+      addedObject: {fileID: 8910401264946217980}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4f8457d68cab62041b6d4b3bec874e6a,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: -5690679414523281298}
+      addedObject: {fileID: 8108408194408271768}
     - targetCorrespondingSourceObject: {fileID: 8187763976473509416, guid: 4f8457d68cab62041b6d4b3bec874e6a,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5194056590880158570}
+      addedObject: {fileID: 484130213835695270}
   m_SourcePrefab: {fileID: 100100000, guid: 4f8457d68cab62041b6d4b3bec874e6a, type: 3}
---- !u!1 &4018396101786390524 stripped
+--- !u!1 &809663643905005264 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4f8457d68cab62041b6d4b3bec874e6a,
     type: 3}
-  m_PrefabInstance: {fileID: 4252906746529968813}
+  m_PrefabInstance: {fileID: 575872628448603009}
   m_PrefabAsset: {fileID: 0}
---- !u!54 &5569816004769351995
+--- !u!54 &8910401264946217980
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4018396101786390524}
+  m_GameObject: {fileID: 809663643905005264}
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
@@ -113,32 +118,33 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-5690679414523281298
+--- !u!114 &8108408194408271768
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4018396101786390524}
+  m_GameObject: {fileID: 809663643905005264}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67af4df9f70812b419768e112b3ffb9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
---- !u!1 &5378876662848326789 stripped
+  despawnTime: 3
+--- !u!1 &8529024869130425769 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8187763976473509416, guid: 4f8457d68cab62041b6d4b3bec874e6a,
     type: 3}
-  m_PrefabInstance: {fileID: 4252906746529968813}
+  m_PrefabInstance: {fileID: 575872628448603009}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &5194056590880158570
+--- !u!64 &484130213835695270
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5378876662848326789}
+  m_GameObject: {fileID: 8529024869130425769}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
