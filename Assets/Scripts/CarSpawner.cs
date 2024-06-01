@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class CarSpawner : MonoBehaviour
 {
     public GameObject[] carPrefabs; // Array of car prefabs to spawn
