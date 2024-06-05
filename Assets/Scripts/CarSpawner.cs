@@ -9,6 +9,7 @@ public class CarSpawner : MonoBehaviour
 
     private Transform player;
     private float timer;
+  [SerializeField] float offset = 20;
 
     void Start()
     {
@@ -28,6 +29,15 @@ public class CarSpawner : MonoBehaviour
             SpawnCar(spawnPosition);
             timer = 0;
         }
+
+
+        for (int i = 0; i < spawnPoints.Length; i++)
+        {
+            Vector3 position = spawnPoints[i].position;
+            position.z = player.position.z + offset;
+            spawnPoints[i].position = position;
+        }
+    
     }
 
     void SpawnCar(Vector3 spawnPosition)
@@ -38,11 +48,26 @@ public class CarSpawner : MonoBehaviour
         // Select a random spawn point from the chosen lane's spawn points
         Transform spawnPoint = spawnPoints[laneIndex];
 
-        // Instantiate the car at the calculated spawn position on the chosen lane
-        GameObject car = Instantiate(carPrefabs[Random.Range(0, carPrefabs.Length)], spawnPoint.position, spawnPoint.rotation);
+        // Check if there is already a car at the spawn point
+        Collider[] hitColliders = Physics.OverlapSphere(spawnPoint.position, 2.0f);
+        bool isCarAtSpawnPoint = false;
+        foreach (var hitCollider in hitColliders)
+        {
+            if (hitCollider.CompareTag("MovingCar"))
+            {
+                isCarAtSpawnPoint = true;
+                break;
+            }
+        }
 
-        // Set the car speed
-        CarMovement carMovement = car.GetComponent<CarMovement>();
-        carMovement.speed = carSpeed;
+        if (!isCarAtSpawnPoint)
+        {
+            // Spawn a new car
+            GameObject car = Instantiate(carPrefabs[Random.Range(0, carPrefabs.Length)], spawnPoint.position, spawnPoint.rotation);
+
+            // Set the car speed
+            CarMovement carMovement = car.GetComponent<CarMovement>();
+            carMovement.speed = carSpeed;
+        }
     }
 }
