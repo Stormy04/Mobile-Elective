@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class SceneChanger : MonoBehaviour
 {
-    public void StartGame()
+    public void StartLevel1()
     {
         SceneManager.LoadScene("First Build");
     }
