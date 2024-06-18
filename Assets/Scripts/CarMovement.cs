@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CarMovement : MonoBehaviour
 {
-    public float speed = 10.0f;
+    public float speed = 5.0f;
     public float despawnTime = 3.0f; 
 
     private Transform player;
