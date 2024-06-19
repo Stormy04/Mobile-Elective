@@ -2,13 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 public class SceneChanger : MonoBehaviour
 {
-    public void StartLevel1()
+    public void RestartCurrentLevel()
     {
-        SceneManager.LoadScene("Level1");
+
+        Scene currentScene = SceneManager.GetActiveScene();
+         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex - 1);
     }
+   
+  
 
-
-
+    public void RetryLevel()
+    {
+        SceneController.instance.LoadLastLevel();
+    }
 }
+
+

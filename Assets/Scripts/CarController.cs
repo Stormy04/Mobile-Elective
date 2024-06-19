@@ -125,11 +125,14 @@ public class CarController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("MovingCar"))
         {
-            
-            Debug.Log("Crashed!");
-            SceneManager.LoadScene("LoseScreen");
+
+            PlayerLost();
         }
     }
-
+    public void PlayerLost()
+    {
+        SceneController.instance.StoreCurrentLevelIndex();
+        SceneManager.LoadScene("LoseScreen");
+    }
 
 }
