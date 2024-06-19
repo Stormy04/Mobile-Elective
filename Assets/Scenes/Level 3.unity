@@ -1037,7 +1037,7 @@ PrefabInstance:
     - target: {fileID: 8368912353735289055, guid: 105ea11a9af6f324fad068c4b2021ed4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -99.72
+      value: -100.32
       objectReference: {fileID: 0}
     - target: {fileID: 8368912353735289055, guid: 105ea11a9af6f324fad068c4b2021ed4,
         type: 3}
@@ -8180,7 +8180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ac2ebedb407d3e48b042c6948e6e847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  control: 0
+  control: 1
   maxAcceleration: 15
   brakeAcceleration: 10000
   turnSensitivity: 1
