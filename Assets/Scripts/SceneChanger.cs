@@ -6,7 +6,7 @@ public class SceneChanger : MonoBehaviour
 {
     public void StartLevel1()
     {
-        SceneManager.LoadScene("First Build");
+        SceneManager.LoadScene("Level1");
     }
 
 
