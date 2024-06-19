@@ -9,6 +9,7 @@ public class CarMovement : MonoBehaviour
     private Transform player;
     private PlayerScore playerScore;
     private bool isBehindPlayer = false;
+    private bool pointsAwarded = false; // New flag to track if points have been awarded
     private float timeBehindPlayer = 0.0f;
 
     void Start()
@@ -28,10 +29,11 @@ public class CarMovement : MonoBehaviour
                 isBehindPlayer = true;
                 timeBehindPlayer = 0.0f;
 
-                // Reward the player with points when they pass the car
-                if (playerScore != null)
+                // Reward the player with points when they pass the car, only if not already awarded
+                if (!pointsAwarded && playerScore != null)
                 {
                     playerScore.AddPoints(scoreReward);
+                    pointsAwarded = true;
                 }
             }
 

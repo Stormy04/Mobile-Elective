@@ -2,19 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
 public class FinishPoint : MonoBehaviour
 {
-    // The name of the win screen scene
+    // Reference to the win screen UI
     [SerializeField]
-    private string winScreenSceneName = "WinScreen";
-
+    private GameObject winScreenUI;
+    [SerializeField]
+    private PlayerScore playerScore;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             UnlockNewLevel();
-            LoadWinScreen();
+            ShowWinScreen();
+            Time.timeScale = 0f; // Stop the game
         }
     }
 
@@ -28,8 +29,19 @@ public class FinishPoint : MonoBehaviour
         }
     }
 
-    void LoadWinScreen()
+    void ShowWinScreen()
     {
-        SceneManager.LoadScene(winScreenSceneName);
+        winScreenUI.SetActive(true);
+        if (playerScore != null && playerScore.scoreText != null)
+        {
+            playerScore.scoreText.gameObject.SetActive(false);
+        }
+    }
+
+    // Method to be called by the UI button
+    public void LoadNextLevel()
+    {
+        Time.timeScale = 1f; // Resume the game
+        SceneController.instance.NextLevel();
     }
 }

@@ -18,6 +18,12 @@ public class SceneChanger : MonoBehaviour
     {
         SceneController.instance.LoadLastLevel();
     }
+    public void BackToMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("StartScreen");
+    }
 }
+
 
 
