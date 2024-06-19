@@ -16,6 +16,7 @@ public class SceneChanger : MonoBehaviour
 
     public void RetryLevel()
     {
+        Time.timeScale = 1f;
         SceneController.instance.LoadLastLevel();
     }
     public void BackToMenu()
