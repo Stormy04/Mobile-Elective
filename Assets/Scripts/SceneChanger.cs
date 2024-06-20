@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
+    public GameObject pauseMenuUI;
     public void RestartCurrentLevel()
     {
 
@@ -17,7 +18,9 @@ public class SceneChanger : MonoBehaviour
     public void RetryLevel()
     {
         Time.timeScale = 1f;
-        SceneController.instance.LoadLastLevel();
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.name);
+        pauseMenuUI.SetActive(false);
     }
     public void BackToMenu()
     {
