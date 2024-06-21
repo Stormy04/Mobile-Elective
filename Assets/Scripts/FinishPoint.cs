@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Analytics;
 public class FinishPoint : MonoBehaviour
 {
     // Reference to the win screen UI
@@ -16,6 +17,12 @@ public class FinishPoint : MonoBehaviour
             UnlockNewLevel();
             ShowWinScreen();
             Time.timeScale = 0f; // Stop the game
+            Debug.Log("Sending win_screen_seen event");
+            Analytics.CustomEvent("win_screen_seen", new Dictionary<string, object>
+            {
+                { "level_index", SceneManager.GetActiveScene().buildIndex },
+                { "player_score", playerScore != null ? playerScore.score  : 0 }
+            });
         }
     }
 
