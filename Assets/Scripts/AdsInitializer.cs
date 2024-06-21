@@ -7,7 +7,7 @@ public class AdsInitializer : MonoBehaviour, IUnityAdsInitializationListener
     [SerializeField] string _iOSGameId;
     [SerializeField] bool _testMode = true;
     private string _gameId;
-
+    [SerializeField] RewardedAds rewardedAds;
     void Awake()
     {
         InitializeAds();
@@ -25,6 +25,7 @@ public class AdsInitializer : MonoBehaviour, IUnityAdsInitializationListener
         if (!Advertisement.isInitialized && Advertisement.isSupported)
         {
             Advertisement.Initialize(_gameId, _testMode, this);
+
         }
     }
 
@@ -32,6 +33,7 @@ public class AdsInitializer : MonoBehaviour, IUnityAdsInitializationListener
     public void OnInitializationComplete()
     {
         Debug.Log("Unity Ads initialization complete.");
+        rewardedAds.LoadAd();
     }
 
     public void OnInitializationFailed(UnityAdsInitializationError error, string message)
