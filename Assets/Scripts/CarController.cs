@@ -29,11 +29,15 @@ public class CarController : MonoBehaviour
     public float maxSteerAngle = 30.0f;
     public Vector3 _centerOfMass;
     public List<Wheel> wheels;
-
+    [SerializeField]
+    private GameObject loseScreenUI;
+   
+    
     float moveInput;
     float steerInput;
     private Rigidbody carRb;
-     void Start()
+    private int losses = 0;
+    void Start()
     {
         carRb = GetComponent<Rigidbody>();
         carRb.centerOfMass = _centerOfMass;
@@ -125,14 +129,15 @@ public class CarController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("MovingCar"))
         {
-
+            Time.timeScale = 0f;
             PlayerLost();
         }
     }
     public void PlayerLost()
     {
-        SceneController.instance.StoreCurrentLevelIndex();
-        SceneManager.LoadScene("LoseScreen");
+        
+        loseScreenUI.SetActive(true);
+        
     }
 
 }

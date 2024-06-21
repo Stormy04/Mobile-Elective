@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ObstacleSpawn
   - MovingCar
+  - Skip
   layers:
   - Default
   - TransparentFX
