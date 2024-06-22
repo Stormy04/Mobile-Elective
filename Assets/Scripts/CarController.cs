@@ -31,13 +31,15 @@ public class CarController : MonoBehaviour
     public Vector3 _centerOfMass;
     public List<Wheel> wheels;
     [SerializeField]
+    private GameObject pausebutton;
+    [SerializeField]
     private GameObject loseScreenUI;
     [SerializeField] RewardedAds rewardedAds;
     public AudioSource backgroundMusic;
     float moveInput;
     float steerInput;
     private Rigidbody carRb;
-   
+    public AudioSource loseSound;
     void Start()
     {
         carRb = GetComponent<Rigidbody>();
@@ -136,8 +138,10 @@ public class CarController : MonoBehaviour
     }
     public void PlayerLost()
     {
+        loseSound.Play();
         rewardedAds.LoadAd();
         loseScreenUI.SetActive(true);
+        pausebutton.SetActive(false);
         StopMusic();
     }
     public void StopMusic()
