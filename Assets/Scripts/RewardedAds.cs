@@ -61,6 +61,7 @@ public class RewardedAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLi
         {
             Debug.Log("Unity Ads Rewarded Ad Completed");
             SceneController.instance.NextLevel();
+            Time.timeScale = 1f;
         }
     }
 
