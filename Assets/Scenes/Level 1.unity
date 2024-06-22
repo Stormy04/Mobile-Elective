@@ -9051,6 +9051,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winScreenUI: {fileID: 523636733}
   playerScore: {fileID: 5985299042600968988}
+  rewardedAds: {fileID: 922026895}
 --- !u!1001 &1740443047
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11669,6 +11670,7 @@ GameObject:
   - component: {fileID: 4074645089146940305}
   - component: {fileID: 4074645089146940306}
   - component: {fileID: 4074645089146940307}
+  - component: {fileID: 4074645089146940308}
   m_Layer: 0
   m_Name: Player Car
   m_TagString: Untagged
@@ -11752,6 +11754,22 @@ MonoBehaviour:
     wheelCollider: {fileID: 2064233902}
     axle: 1
   loseScreenUI: {fileID: 1966885192}
+  rewardedAds: {fileID: 4074645089146940308}
+--- !u!114 &4074645089146940308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3731193474953048363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5bc32a73cb387f4db52ef647386b848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showAdButton: {fileID: 62952813}
+  _androidAdUnitId: Rewarded_Android
+  _iOSAdUnitId: Rewarded_iOS
 --- !u!33 &4393500944215394436
 MeshFilter:
   m_ObjectHideFlags: 0

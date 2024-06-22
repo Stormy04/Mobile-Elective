@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using UnityEngine.Analytics;
 public class CarController : MonoBehaviour
 {
     public enum ControlMode
@@ -31,12 +32,12 @@ public class CarController : MonoBehaviour
     public List<Wheel> wheels;
     [SerializeField]
     private GameObject loseScreenUI;
-   
-    
+    [SerializeField] RewardedAds rewardedAds;
+
     float moveInput;
     float steerInput;
     private Rigidbody carRb;
-    private int losses = 0;
+   
     void Start()
     {
         carRb = GetComponent<Rigidbody>();
@@ -135,7 +136,7 @@ public class CarController : MonoBehaviour
     }
     public void PlayerLost()
     {
-        
+        rewardedAds.LoadAd();
         loseScreenUI.SetActive(true);
         
     }
