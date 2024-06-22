@@ -29,7 +29,10 @@ public class SceneChangerIndividual : MonoBehaviour
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex - 1);
     }
 
-
+    public void BackHome()
+    {
+        SceneManager.LoadScene("StartScreen");
+    }
 }
 
 
