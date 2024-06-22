@@ -10,6 +10,7 @@ public class FinishPoint : MonoBehaviour
     private GameObject winScreenUI;
     [SerializeField]
     private PlayerScore playerScore;
+    public CarController carcontroller;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -43,6 +44,7 @@ public class FinishPoint : MonoBehaviour
         {
             playerScore.scoreText.gameObject.SetActive(false);
         }
+        carcontroller.StopMusic();
     }
 
     // Method to be called by the UI button

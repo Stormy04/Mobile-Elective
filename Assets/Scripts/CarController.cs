@@ -33,7 +33,7 @@ public class CarController : MonoBehaviour
     [SerializeField]
     private GameObject loseScreenUI;
     [SerializeField] RewardedAds rewardedAds;
-
+    public AudioSource backgroundMusic;
     float moveInput;
     float steerInput;
     private Rigidbody carRb;
@@ -138,7 +138,13 @@ public class CarController : MonoBehaviour
     {
         rewardedAds.LoadAd();
         loseScreenUI.SetActive(true);
-        
+        StopMusic();
     }
-
+    public void StopMusic()
+    {
+        if (backgroundMusic != null && backgroundMusic.isPlaying)
+        {
+            backgroundMusic.Stop();
+        }
+    }
 }
