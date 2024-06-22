@@ -7138,6 +7138,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 922026896}
+        m_TargetAssemblyTypeName: InterstitialAd, Assembly-CSharp
+        m_MethodName: ShowAd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1312594757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9051,7 +9063,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winScreenUI: {fileID: 523636733}
   playerScore: {fileID: 5985299042600968988}
-  rewardedAds: {fileID: 922026895}
 --- !u!1001 &1740443047
 PrefabInstance:
   m_ObjectHideFlags: 0
