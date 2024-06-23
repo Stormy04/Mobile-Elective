@@ -936,6 +936,11 @@ PrefabInstance:
       propertyPath: _showAdButton
       value: 
       objectReference: {fileID: 62952813}
+    - target: {fileID: 6226200466392763048, guid: 55c62f5db506d2a48a54860258f2bfbd,
+        type: 3}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7461956261610046716, guid: 55c62f5db506d2a48a54860258f2bfbd,
         type: 3}
       propertyPath: lightToggle
